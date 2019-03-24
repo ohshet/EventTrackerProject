@@ -1,0 +1,2 @@
+###REST API Project###
+This project is a simple REST API that allows a user to store, retrieve, and modify information about their last gasoline fillup.  It performs create, read, udpate and delete (CRUD) operations on mySQL database named fuel.  The fillup table contains columns for an auto-incremented ID, datetime, odometer reading, gallons, and price per gallon.  This information may be used to track a vehicle's fuel efficiency across time. 
