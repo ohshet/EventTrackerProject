@@ -16,7 +16,7 @@ public class Fillup {
 	private int id;	
 	
 	@Column(name="time_stamp")
-	private Date timeStamp;
+	private Date date;
 	
 	private Integer odometer;
 	
@@ -26,13 +26,11 @@ public class Fillup {
 	private Double gallons;
 	
 	public Fillup() {
-		super();
 	}
 
-	public Fillup(int id, Date timeStamp, Integer odometer, Double pricePerGallon, Double gallons) {
-		super();
+	public Fillup(int id, Date date, Integer odometer, Double pricePerGallon, Double gallons) {
 		this.id = id;
-		this.timeStamp = timeStamp;
+		this.date = date;
 		this.odometer = odometer;
 		this.pricePerGallon = pricePerGallon;
 		this.gallons = gallons;
@@ -46,12 +44,12 @@ public class Fillup {
 		this.id = id;
 	}
 
-	public Date getTimeStamp() {
-		return timeStamp;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public Integer getOdometer() {
@@ -76,6 +74,12 @@ public class Fillup {
 
 	public void setGallons(Double gallons) {
 		this.gallons = gallons;
+	}
+
+	@Override
+	public String toString() {
+		return "Fillup [id=" + id + ", date=" + date + ", odometer=" + odometer + ", pricePerGallon=" + pricePerGallon
+				+ ", gallons=" + gallons + "]";
 	}
 	
 }

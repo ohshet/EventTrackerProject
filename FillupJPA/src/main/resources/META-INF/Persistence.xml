@@ -10,10 +10,10 @@
 		<class>com.skilldistillery.fillupjpa.entities.Fillup</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/xtremedb?useSSL=false" />
-			<property name="javax.persistence.jdbc.user" value="xtreme" />
+				value="jdbc:mysql://localhost:3306/fueldb?useSSL=false" />
+			<property name="javax.persistence.jdbc.user" value="fueluser" />
 			<property name="javax.persistence.jdbc.password"
-				value="xtreme" />
+				value="fuelpass" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
 
