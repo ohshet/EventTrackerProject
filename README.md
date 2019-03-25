@@ -4,8 +4,7 @@ This project is a simple REST API that allows a user to store, retrieve, and mod
 ## REST API endpoints:  
 ```Retrieve all records:             GET api/fillups  
 Find record by ID:                GET api/fillups/{id}  
-Find records by date range:       GET api/fillups/date/{min: yyyy-mm-dd}/  
-                                      {max: yyyy-mm-dd}  
+Find records by date range:       GET api/fillups/date/{min: yyyy-mm-dd}/{max: yyyy-mm-dd}  
 Find records by odometer range:   GET api/fillups/odometer/{min}/{max}  
 Find records by price range:      GET api/fillups/price/{min}/{max}  
 Find records by gallons range:    GET api/fillups/gallons/{min}/{max}  
