@@ -11,4 +11,5 @@ Find records by price range:      GET api/fillups/price/{min}/{max}
 Find records by gallons range:    GET api/fillups/gallons/{min}/{max}  
 Delete record by ID:              DELETE api/fillups/{id}  
 Replace record by ID:             PUT api/fillups/{id}  
-Add new record:                   POST api/fillups/{id}```
+Add new record:                   POST api/fillups/{id}
+```
