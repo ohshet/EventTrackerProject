@@ -1,19 +1,19 @@
-package com.skilldistillery.filluprest.services;
+package com.skilldistillery.fillup.services;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.skilldistillery.fillup.entities.Fillup;
+import com.skilldistillery.fillup.repositories.FillupRepository;
 
-import com.skilldistillery.fillupjpa.entities.Fillup;
-import com.skilldistillery.filluprest.repositories.FillupRepository;
-
+@Service
 public class FillupServiceImpl implements FillupService {
-	
+
 	@Autowired
 	FillupRepository repo;
-	
+
 	@Override
 	public List<Fillup> findAll() {
 		List<Fillup> fillups = null;
@@ -26,7 +26,7 @@ public class FillupServiceImpl implements FillupService {
 		Optional<Fillup> optional;
 		Fillup fillup = null;
 		optional = repo.findById(id);
-		if(optional.isPresent()) {
+		if (optional.isPresent()) {
 			fillup = optional.get();
 		}
 		return fillup;
@@ -62,8 +62,9 @@ public class FillupServiceImpl implements FillupService {
 	@Override
 	public Fillup updateFillup(Integer id, Fillup fillup) {
 		Fillup managed = null;
-		managed = repo.findById(id).get();
-		if(managed != null) {
+		Optional<Fillup> optional = repo.findById(id);
+		if (optional.isPresent()) {
+			managed = optional.get();
 			managed.setDate(fillup.getDate());
 			managed.setOdometer(fillup.getOdometer());
 			managed.setPricePerGallon(fillup.getPricePerGallon());
@@ -82,9 +83,8 @@ public class FillupServiceImpl implements FillupService {
 		if (optional.isPresent()) {
 			managed = optional.get();
 			repo.delete(managed);
-			result = true;			
-		}		
+			result = true;
+		}
 		return result;
 	}
-
 }

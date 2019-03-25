@@ -1,4 +1,4 @@
-package com.skilldistillery.filluprest;
+package com.skilldistillery.fillup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

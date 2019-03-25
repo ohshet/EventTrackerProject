@@ -1,4 +1,4 @@
-package com.skilldistillery.fillupjap.entities.test;
+package com.skilldistillery.fillup.entities.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.fillupjpa.entities.Fillup;
+import com.skilldistillery.fillup.entities.Fillup;
 
 class FillupTest {
 	
