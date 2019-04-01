@@ -45,10 +45,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `fueldb`;
-INSERT INTO `fillup` (`id`, `time_stamp`, `odometer`, `price_per_gallon`, `gallons`) VALUES (1, '2019-03-01 19:25:00', 17500, 2.26, 8.3);
-INSERT INTO `fillup` (`id`, `time_stamp`, `odometer`, `price_per_gallon`, `gallons`) VALUES (2, '2019-03-03 20:30:00', 17850, 2.34, 8.6);
-INSERT INTO `fillup` (`id`, `time_stamp`, `odometer`, `price_per_gallon`, `gallons`) VALUES (3, '2019-03-06 08:34:00', 18206, 2.49, 9.0);
-INSERT INTO `fillup` (`id`, `time_stamp`, `odometer`, `price_per_gallon`, `gallons`) VALUES (4, '2019-03-09 17:45:00', 18563, 2.55, 7.4);
+INSERT INTO `fillup` (`id`, `time_stamp`, `odometer`, `price_per_gallon`, `gallons`) VALUES (1, '2019-03-01 00:00:00', 17500, 2.26, 8.3);
+INSERT INTO `fillup` (`id`, `time_stamp`, `odometer`, `price_per_gallon`, `gallons`) VALUES (2, '2019-03-03 00:00:00', 17850, 2.34, 8.6);
+INSERT INTO `fillup` (`id`, `time_stamp`, `odometer`, `price_per_gallon`, `gallons`) VALUES (3, '2019-03-06 00:00:00', 18206, 2.49, 9.0);
+INSERT INTO `fillup` (`id`, `time_stamp`, `odometer`, `price_per_gallon`, `gallons`) VALUES (4, '2019-03-09 17:45:00', 18563, 2.55, 8.3);
 INSERT INTO `fillup` (`id`, `time_stamp`, `odometer`, `price_per_gallon`, `gallons`) VALUES (DEFAULT, NULL, NULL, NULL, 8.4);
 
 COMMIT;
