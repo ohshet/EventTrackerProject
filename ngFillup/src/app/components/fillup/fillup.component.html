@@ -1,0 +1,97 @@
+<div class='container-fluid'>
+  <div id='title'>
+    Fillup Tracker
+  </div>
+  <div id='navdiv'>
+    <span class='clickable' (click)='navAll()'>Show All Fillups | </span>
+    <span class='clickable' (click)='navAdd()'>Add New Fillup | </span>
+    <span class='clickable' (click)='navDate()'>Search By Date Range | </span>
+    <span class='clickable' (click)='navOdo()'>Search By Odometer | </span>
+    <span class='clickable' (click)='navPrice()'>Search By Price</span>
+  </div>
+  <hr/>
+
+  <div id='addnewdiv' *ngIf='showAdd'>
+    <h2>Add New Fillup</h2>
+    <form #addnewform = 'ngForm'>
+      <input type='date' name='date' ngModel/> Date<br/>
+      <input type='number' step='1.0' name='odometer' placeholder='Odometer' ngModel/> Odometer<br/>
+      <input type='number' step='0.01' name='price' placeholder='Price/Gallon' ngModel/> Price Per Gallon<br/>
+      <input type='number' step='0.01' name='gallons' placeholder='Gallons' ngModel/> Gallons Purchased<br/><br/>
+      <button (click)='submitNew(addnewform)'>Submit</button>
+    </form>
+  </div>
+
+  <div id='searchdatediv' *ngIf='showDate'>
+    <h2>Search Fillups By Date</h2>
+    <form #searchdateform = 'ngForm'>
+      <input type='date' name='min' ngModel/> Date Range Start<br/>
+      <input type='date' name='max' ngModel/> Date Range End<br/><br/>
+      <button (click)='searchByDate(searchdateform)'>Search</button><br/><br/>
+    </form>
+  </div>
+
+  <div id='searchododiv' *ngIf='showOdo'>
+    <h2>Search Fillups By Odometer</h2>
+    <form #searchodoform = 'ngForm'>
+      <input type='number' step='1.0' name='min' placeholder='odometer' ngModel/> Minimum Odometer<br/>
+      <input type='number' step='1.0' name='max' placeholder='odometer' ngModel/> Maximum Odometer<br/><br/>
+      <button (click)='searchByOdometer(searchodoform)'>Search</button><br/><br/>
+    </form>
+  </div>
+
+  <div id='searchpricediv' *ngIf='showPrice'>
+    <h2>Search Fillups By Price</h2>
+    <form #searchpriceform = 'ngForm'>
+      <input type='number' step='0.01' name='min' placeholder='price' ngModel/> Minimum Price<br/>
+      <input type='number' step='0.01' name='max' placeholder='price' ngModel/> Maximum Price<br/><br/>
+      <button (click)='searchByPrice(searchpriceform)'>Search</button><br/><br/>
+    </form>
+  </div>
+
+  <div id='editdiv' *ngIf='showEdit'>
+      <h2>Modify / Delete Existing Fillup</h2>
+      <form #modifyform = 'ngForm'>
+        <input type='text' name='id' readonly='readonly' [(ngModel)]='editFillup.id'/> Id<br/>
+        <input type='date' name='date' [(ngModel)]='editFillup.date'/> Date<br/>
+        <input type='number' step='1.0' name='odometer' placeholder='Odometer' [(ngModel)]='editFillup.odometer'/> Odometer<br/>
+        <input type='number' step='0.01' name='price' placeholder='Price/Gallon' [(ngModel)]='editFillup.pricePerGallon'/> Price Per Gallon<br/>
+        <input type='number' step='0.01' name='gallons' placeholder='Gallons' [(ngModel)]='editFillup.gallons'/> Gallons Purchased<br><br/>
+        <button (click)='submitEdit()'>Submit Changes</button>
+        <button (click)='submitDelete()'>Delete This Fillup</button>
+      </form>
+    </div>
+</div>
+
+<div class='container-fluid' id='tablediv' *ngIf='showTable'>
+    <span class='clickable' *ngIf='showStats' (click)='calcMpg()'>Calculate Statistics</span>
+  <table class='table table-striped table-hover' id='filluptable'>
+    <thead class='thead-dark'>
+      <tr>
+        <th>Id</th>
+        <th>Date</th>
+        <th>Odometer</th>
+        <th>Price/Gallon</th>
+        <th>Gallons</th>
+        <th *ngIf='showStats'>Miles Driven</th>
+        <th *ngIf='showStats'>MPG</th>
+        <th *ngIf='showStats'>ΔMPG</th>
+        <th *ngIf='showStats'>Cost/Mile</th>
+      </tr>
+    </thead>
+    <tbody id=filluptablebody>
+        <tr *ngFor='let f of fillups' (click)='launchEdit(f)'>
+          <td>{{f.id}}</td>
+          <td>{{f.date | date:'MM/dd/yyyy' : '+720'}}</td>
+          <td>{{f.odometer}}</td>
+          <td>{{f.pricePerGallon | currency}}</td>
+          <td>{{f.gallons | number: '1.2-2'}}</td>
+          <td *ngIf='showStats'>-</td>
+          <td *ngIf='showStats'>-</td>
+          <td *ngIf='showStats'>-</td>
+          <td *ngIf='showStats'>-</td>
+        </tr>
+      </tbody>
+  </table>
+
+</div>
