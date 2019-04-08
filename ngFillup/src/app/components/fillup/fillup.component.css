@@ -1,3 +1,13 @@
+#topdiv {
+  height: 50% !important;
+  overflow: scroll;
+}
+
+#tablediv {
+  height: 50% !important;
+  overflow: scroll;
+}
+
 #title {
   font-size: 36px;
   font-weight: bold;
@@ -7,3 +17,14 @@
   color: blue;
 }
 
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+#filluptable {
+  text-align: center;
+}

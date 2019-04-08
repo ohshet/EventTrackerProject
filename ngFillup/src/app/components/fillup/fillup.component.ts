@@ -183,9 +183,11 @@ calcMpg() {
       numDMpg = Math.round(((numMpg - prevMpg) / prevMpg)*10000)/100;
       if(numDMpg >= 0) {
         rowDMpg.textContent = '+' + numDMpg.toString() + '%';
+        rowDMpg.className = 'green';
       }
       else {
       rowDMpg.textContent = numDMpg.toString() + '%';
+      rowDMpg.className = 'red';
       }
     }
     prevOdo = parseInt(rowOdo.textContent);
@@ -230,6 +232,10 @@ launchEdit(fillup: Fillup) {
 }
 
 submitEdit() {
+  if(!this.editFillup.date || !this.editFillup.odometer || !this.editFillup.pricePerGallon || !this.editFillup.gallons) {
+    alert('Invalid submission.  Complete all fields and try again.')
+  }
+  else {
   this.fillupService.update(this.editFillup).subscribe(
     data => {
       alert('Record Successfully Updated');
@@ -242,6 +248,7 @@ submitEdit() {
     }
     );
   }
+}
 
 submitDelete() {
   this.fillupService.delete(this.editFillup.id).subscribe(

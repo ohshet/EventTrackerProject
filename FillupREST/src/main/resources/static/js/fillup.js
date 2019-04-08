@@ -343,7 +343,7 @@ function getAll(type, min, max) {
 			let fillups = JSON.parse(xhr.responseText);
       let fillupTable = document.getElementById('filluptable');
       fillupTable.innerHTML = '';
-      let fillup, newRow, radButTd, radBut, id, date, odometer, price, gallons, mpg, Δmpg, ΔmpgVal, cpm, thSelect, thId, thDate, thOdometer, thPrice, thGallons, thMpg, thΔMpg, thCpm;
+      let fillup, newRow, radButTd, radBut, id, date, odometer, price, gallons, mpg, Dmpg, DmpgVal, cpm, thSelect, thId, thDate, thOdometer, thPrice, thGallons, thMpg, thDMpg, thCpm;
       let  prevOdo = 0;
       let prevMpg = 0;
       var modId;
@@ -371,10 +371,10 @@ function getAll(type, min, max) {
       thMpg.className = "hideable";
       thMpg.textContent = 'MPG';
       newRow.appendChild(thMpg);
-      thΔMpg = document.createElement('th');
-      thΔMpg.className = 'hideable';
-      thΔMpg.textContent = 'ΔMPG';
-      newRow.appendChild(thΔMpg);
+      thDMpg = document.createElement('th');
+      thDMpg.className = 'hideable';
+      thDMpg.textContent = 'DMPG';
+      newRow.appendChild(thDMpg);
       thCpm = document.createElement('th');
       thCpm.className = 'hideable';
       thCpm.textContent = 'Cost/Mile';
@@ -419,19 +419,19 @@ function getAll(type, min, max) {
           mpg.textContent = '-';
         }
         newRow.appendChild(mpg);
-        Δmpg = document.createElement('td');
-        Δmpg.className = 'hideable';
+        Dmpg = document.createElement('td');
+        Dmpg.className = 'hideable';
         if(prevMpg > 0) {
-          ΔmpgVal = (((mpg.textContent - prevMpg) / prevMpg) * 100).toFixed(2);
-          if(ΔmpgVal > 0) {
-            ΔmpgVal = '+' + ΔmpgVal;
+          DmpgVal = (((mpg.textContent - prevMpg) / prevMpg) * 100).toFixed(2);
+          if(DmpgVal > 0) {
+            DmpgVal = '+' + DmpgVal;
           }
-          Δmpg.textContent = ΔmpgVal  + '%';
+          Dmpg.textContent = DmpgVal  + '%';
         }
         else {
-          Δmpg.textContent = '-';
+          Dmpg.textContent = '-';
         }
-        newRow.appendChild(Δmpg);
+        newRow.appendChild(Dmpg);
         cpm = document.createElement('td');
         cpm.className = 'hideable';
         if(prevOdo > 0) {

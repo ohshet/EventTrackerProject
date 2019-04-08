@@ -13,5 +13,8 @@ Delete record by ID:              DELETE api/fillups/{id}
 Replace record by ID:             PUT api/fillups/{id}  
 Add new record:                   POST api/fillups/{id}
 ```
-# UPDATE: JavaScript Front end
+# UPDATE: JavaScript Front End
 I have updated the API project to include a JavaScript based front end.  The main page is accessible at URL: http://3.17.248.158:8080/FillupREST.  This page allows the user to retrieve all records, or search by date, odometer entries, or price per gallon paid.  Additionally, the user can add new fillups to the DB, modify existing records, or delete records.
+
+# UPDATE: Angular Front End
+I have updated the project to include an Angular front end.  This front end provides greater functionality and a better user experience than the JS front end.  Improvements include a navigation bar, validation on forms, and overall smoother operation. 
