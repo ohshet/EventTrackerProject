@@ -99,6 +99,10 @@ showAll() {
 searchByPrice(form: NgForm) {
   const min = form.value.min;
   const max = form.value.max;
+  if(!min || !max || min >= max) {
+    alert('Invalid search.  Check your search parameters and try again.')
+  }
+  else {
   this.fillupService.searchPrice(min, max).subscribe(
     data => {
       this.fillups = data;
@@ -109,11 +113,16 @@ searchByPrice(form: NgForm) {
       console.error(err);
     }
   );
+  }
 }
 
 searchByOdometer(form: NgForm) {
   const min = form.value.min;
   const max = form.value.max;
+  if(!min || !max || min >= max) {
+    alert('Invalid search.  Check your search parameters and try again.')
+  }
+  else {
   this.fillupService.searchOdometer(min, max).subscribe(
     data => {
       this.fillups = data;
@@ -124,11 +133,16 @@ searchByOdometer(form: NgForm) {
       console.error(err);
     }
   );
+  }
 }
 
 searchByDate(form: NgForm) {
   const min = form.value.min;
   const max = form.value.max;
+  if(!min || !max || min >= max) {
+    alert('Invalid search.  Check your search parameters and try again.')
+  }
+  else {
   this.fillupService.searchDate(min, max).subscribe(
     data => {
       this.fillups = data;
@@ -139,6 +153,7 @@ searchByDate(form: NgForm) {
       console.error(err);
     }
   );
+  }
 }
 
 calcMpg() {
@@ -179,13 +194,16 @@ calcMpg() {
 }
 
 submitNew(form: NgForm) {
-  const fillup = new Fillup();
-  fillup.date = form.value.date;
-  fillup.odometer = form.value.odometer;
-  fillup.pricePerGallon = form.value.price;
-  fillup.gallons = form.value.gallons;
-
-  this.fillupService.create(fillup).subscribe(
+  if(!form.value.date || !form.value.odometer || !form.value.price || !form.value.gallons) {
+    alert('Invalid submission.  Complete all fields and try again.')
+  }
+  else {
+    const fillup = new Fillup();
+    fillup.date = form.value.date;
+    fillup.odometer = form.value.odometer;
+    fillup.pricePerGallon = form.value.price;
+    fillup.gallons = form.value.gallons;
+    this.fillupService.create(fillup).subscribe(
     data => {
       alert('Fillup Event Created!');
       this.navAll();
@@ -195,7 +213,8 @@ submitNew(form: NgForm) {
       console.error(err);
     }
   );
-  this.newFillup = new Fillup();
+    this.newFillup = new Fillup();
+  }
 }
 
 launchEdit(fillup: Fillup) {
